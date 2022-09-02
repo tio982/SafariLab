@@ -1,30 +1,28 @@
 
-
-
+DROP TABLE assigment;
 DROP TABLE animal;
 DROP TABLE enclosure;
 DROP TABLE staff;
-DROP TABLE assignment;
-
-CREATE TABLE animal(
-id SERIAL PRIMARY KEY,
-name VARCHAR(255),
-type VARCHAR(255),
-age INT,
-enclosure_id INT REFERENCES enclosure(id)
-);
-
-CREATE TABLE enclosure(
-id SERIAL PRIMARY KEY,
-name VARCHAR(255),
-capacity INT,
-closedForMaintenance BOOLEAN,
-);
 
 CREATE TABLE staff(
 id SERIAL PRIMARY KEY,
 name VARCHAR(255),
 employeeNumber INT,
+);
+
+CREATE TABLE enclosure(
+id SERIAL,
+name VARCHAR(255),
+capacity INT,
+closedForMaintenance BOOLEAN,
+);
+
+CREATE TABLE animal(
+id SERIAL,
+name VARCHAR(255),
+type VARCHAR(255),
+age INT,
+enclosure_id INT REFERENCES enclosure(id)
 );
 
 CREATE TABLE assignment(
